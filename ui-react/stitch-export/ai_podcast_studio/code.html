@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sonic Lens | Pro Studio Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#353438",
+              "secondary": "#bdf4ff",
+              "inverse-primary": "#6833ea",
+              "on-tertiary-fixed": "#3f0018",
+              "surface": "#131316",
+              "primary-container": "#5d21df",
+              "on-surface": "#e4e1e6",
+              "inverse-surface": "#e4e1e6",
+              "secondary-fixed": "#9cf0ff",
+              "primary": "#cdbdff",
+              "on-background": "#e4e1e6",
+              "surface-container-lowest": "#0e0e11",
+              "error": "#ffb4ab",
+              "on-tertiary-container": "#ffb4c3",
+              "on-primary-container": "#cebfff",
+              "on-primary": "#370096",
+              "tertiary": "#ffb1c1",
+              "primary-fixed-dim": "#cdbdff",
+              "background": "#131316",
+              "primary-fixed": "#e8deff",
+              "on-tertiary": "#66002a",
+              "on-surface-variant": "#cbc3d9",
+              "on-error": "#690005",
+              "tertiary-fixed": "#ffd9df",
+              "surface-container-highest": "#353438",
+              "outline-variant": "#494456",
+              "on-tertiary-fixed-variant": "#8f003f",
+              "surface-container-low": "#1b1b1e",
+              "secondary-fixed-dim": "#00daf3",
+              "on-secondary-fixed": "#001f24",
+              "outline": "#948da2",
+              "on-primary-fixed-variant": "#4f00d0",
+              "secondary-container": "#00e3fd",
+              "surface-container": "#1f1f22",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#004f58",
+              "surface-dim": "#131316",
+              "surface-bright": "#39393c",
+              "error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb1c1",
+              "surface-container-high": "#2a2a2d",
+              "tertiary-container": "#a8004b",
+              "on-secondary": "#00363d",
+              "inverse-on-surface": "#303033",
+              "surface-tint": "#cdbdff",
+              "on-secondary-container": "#00616d",
+              "on-primary-fixed": "#20005f"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift { background-color: #131316; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #494456; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #5D21DF; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- SideNavBar Component -->
+<aside class="h-full w-64 fixed left-0 top-0 bg-[#1B1B1E] dark:bg-[#1B1B1E] transition-colors duration-300 flex flex-col py-8 px-4 gap-y-6 z-50 font-['Inter'] tracking-tight antialiased">
+<div class="flex items-center gap-3 px-2 mb-4">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#5D21DF] to-[#00E3FD] flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">graphic_eq</span>
+</div>
+<div>
+<h1 class="text-xl font-black tracking-tighter bg-gradient-to-br from-[#5D21DF] to-[#00E3FD] bg-clip-text text-transparent">Sonic Lens</h1>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest opacity-60">Pro Studio</p>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-[#5D21DF] to-[#00E3FD] text-white py-3 rounded-xl font-bold text-sm shadow-lg shadow-primary-container/20 flex items-center justify-center gap-2 hover:scale-[0.98] active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-[20px]">add_box</span>
+            New Recording
+        </button>
+<nav class="flex flex-col gap-y-1 mt-4">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#CBC3D9] opacity-70 hover:bg-[#2A2A2D] hover:text-[#00E3FD] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="space_dashboard">space_dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<!-- Create -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#CBC3D9] opacity-70 hover:bg-[#2A2A2D] hover:text-[#00E3FD] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+<span class="text-sm font-medium">Create</span>
+</a>
+<!-- Library -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#CBC3D9] opacity-70 hover:bg-[#2A2A2D] hover:text-[#00E3FD] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="subscriptions">subscriptions</span>
+<span class="text-sm font-medium">Library</span>
+</a>
+<!-- Studio (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#00E3FD] font-bold border-r-2 border-[#00E3FD] bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span class="text-sm">Studio</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#CBC3D9] opacity-70 hover:bg-[#2A2A2D] hover:text-[#00E3FD] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-surface-container rounded-2xl">
+<div class="flex items-center gap-3">
+<img alt="Creator Profile" class="w-10 h-10 rounded-full border-2 border-primary-container/30" data-alt="Close-up portrait of a digital audio professional in a studio setting with soft purple atmospheric backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy1eeerubfBMZ9LF29xBX42B9h-z-cGwSCzHMsof5suT8nUZtpX0wpOmXOYbYfSYieH4poWr5zEjQRZuJaP-30QIFX7D3K8YK1bUrnQ3F-DimLmZ8jSmkXrFEJRX7ad3bF5ipsqzod0F9d7Z9o3bjBlOZ5BfMUryLb88vyVZQ51dXeopk7S2QFXNKFomw48WW7usj8qvHQorFSeBlpKVFZFtBthZ3O-QXDOtMLBn_I5lqmazeYJVcSyCbUTpcKpHt56mb3YwHoD_y1"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold text-on-surface truncate">Alex Rivera</p>
+<p class="text-xs text-on-surface-variant truncate">Pro Plan</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar Component -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-[#131316]/80 backdrop-blur-xl no-border tonal-shift flex justify-between items-center px-8 h-16 ml-64 shadow-2xl shadow-black/20 font-['Inter'] text-sm font-medium">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-secondary">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl pl-10 pr-4 py-2 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-[#5D21DF]/30 transition-all" placeholder="Search project files, transcripts..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#CBC3D9] hover:text-white transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary-container rounded-full"></span>
+</button>
+<button class="text-[#CBC3D9] hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="settings_voice">settings_voice</span>
+</button>
+<div class="h-8 w-px bg-outline-variant/20 mx-2"></div>
+<img alt="Creator Profile" class="w-8 h-8 rounded-full bg-primary-container/20 border border-primary/20" data-alt="A stylized professional profile avatar with a clean modern aesthetic and purple color grading" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1svaYK8E6qh6fr9r8MLli1LC7EjCaw02TZ6cJk4cnBcl8PZyjGFEaC2M5n6ISmLgCbnpsvHiHJw3i72TLuKBhjStnoUMzpP5uAg36U1uRV1CKfGEz3rz6d7j6yFbt6cHVcZug-QXL5NFS2pMGv4Mfb3stlZSJOXtBzdJQRHr1xmAzLJGO6GHfBJNlzN3ShzNgdv4tEljAodK9J4S65oTFV7aXsaIb4RLF36ATb9BD6JV3IUXgprGtq25bU5290zhGp-zPFAgCIkWO"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 pb-20 min-h-screen px-8 bg-background">
+<!-- Editor Header Area -->
+<div class="py-8 flex justify-between items-end border-b border-outline-variant/10 mb-8">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase tracking-widest">Draft</span>
+<span class="text-on-surface-variant text-xs flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> Last edited 2m ago</span>
+</div>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface">Episode 04: The Future of AI</h2>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container transition-all text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">download</span>
+                    Export MP3
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container transition-all text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">description</span>
+                    Export Script
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container transition-all text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">article</span>
+                    Export Transcript
+                </button>
+</div>
+</div>
+<!-- Podcast Script Preview Area -->
+<div class="max-w-4xl mx-auto space-y-12 mb-12 h-[calc(100vh-28rem)] overflow-y-auto pr-4">
+<!-- Conversation Start -->
+<div class="group flex gap-6">
+<div class="flex-shrink-0">
+<img alt="Host Alex" class="w-12 h-12 rounded-2xl bg-surface-container-high" data-alt="Close up of a professional male podcast host with headphones in a dark studio with purple neon accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR0FRmm4UdLVRON8h2DnFMxHu7qn8nHVMhI-lN5rZySctfAWy204PfGzERBptEt-ld6d18o4547j40s-ReP9yYewAB2nhIYYI5aEm0xjZWsxPbOFkP7VegQW0x-KXfPW0IFmirvkYe4dNntBdV_bzQ2wsYJG-DrAi_sQhAR_8jeYoG8yoiUkIXn4MfOa0s4NGKwVysf-lYM_UlpjAA5cBv4Zs5O7rMa7dkb133MFTRz5BKmHX_fk57thecHDnRw0uSkFqTtU0kJfV6"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Host Alex</span>
+<span class="text-[10px] text-outline-variant font-mono">00:00:12</span>
+</div>
+<div class="p-6 rounded-2xl rounded-tl-none bg-surface-container-low border-l-4 border-primary-container shadow-xl">
+<p class="text-lg leading-relaxed text-on-surface font-medium">Welcome back to Sonic Lens. Today, we're diving deep into the neural pathways of innovation. I'm joined by Sarah Chen to discuss how generative AI is reshaping the very fabric of creativity. Sarah, thanks for being here.</p>
+</div>
+</div>
+</div>
+<!-- Guest Response -->
+<div class="group flex gap-6 flex-row-reverse">
+<div class="flex-shrink-0">
+<img alt="Guest Sarah" class="w-12 h-12 rounded-2xl bg-surface-container-high" data-alt="Cinematic portrait of a tech expert female guest with soft cyan lighting reflecting on her face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQc1XkjT9Lnh6G7p4IraiZPIIwvffIXcapWaA4LkRjUGYgUF3bP7S33xHnQcXMPcygNILoa4VmTWQeh9_p5ed5JwvFGr60nHJuyLQ8bAwN6QINeQVtUK63kFGh7wrk-lJ3f8wy9lHgOzWeaFdNwYi0_78KqAQkScn081vm5KX362MszNbTfLwjIv1uUcXvX0PMSr5GNIbB762A2f-0Ut_a49ae9BOfRVWrH8PBKd70Vd46ktZBQe016996GHyJ3OeOVZBF8u1vs-I5"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-center justify-between flex-row-reverse">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Guest Sarah</span>
+<span class="text-[10px] text-outline-variant font-mono">00:00:45</span>
+</div>
+<div class="p-6 rounded-2xl rounded-tr-none bg-transparent border-2 border-secondary/30 ring-1 ring-secondary/10 shadow-[0_0_30px_rgba(0,227,253,0.05)]">
+<p class="text-lg leading-relaxed text-secondary-fixed-dim font-medium italic">"It's a pleasure, Alex. I think we're at a point where the distinction between tool and collaborator is starting to vanish. We're not just using AI; we're performing with it."</p>
+</div>
+</div>
+</div>
+<!-- Host Follow-up -->
+<div class="group flex gap-6">
+<div class="flex-shrink-0">
+<img alt="Host Alex" class="w-12 h-12 rounded-2xl bg-surface-container-high" data-alt="Professional podcast host speaking into a high-end condenser microphone in a dark moody studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUg5i3UTg8OmDBpjwWG5vigyU1-Jo111QrdCYXgdcT3eD1n9BpP2fqRyOvMEcUaV1paGSDdVlQNgM-Rg4YJFg2bb_ZrzFar0eLyAvtoinyx-lV0uyxIXl1N9jtEkrij5cqBNVaeUDjeu0RIgkuISyeVDkD8bkreXngafN4RdklXo7WdCT2RNpBEWWUcwsEiDlUAEg5DiQLpA0DfLIwtZkaREWO_mwXKbZZiq7diXyehF5c65I6nOOKwVRYuF5jD8vGj4eMxWb3glca"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Host Alex</span>
+<span class="text-[10px] text-outline-variant font-mono">01:15:02</span>
+</div>
+<div class="p-6 rounded-2xl rounded-tl-none bg-surface-container-low border-l-4 border-primary-container shadow-xl">
+<p class="text-lg leading-relaxed text-on-surface font-medium">That's a powerful way to frame it. Performance vs Production. In the audio space specifically, we're seeing AI that can isolate emotional resonance in a voice. Does that scare you or excite you?</p>
+</div>
+</div>
+</div>
+<!-- Guest Deep Dive -->
+<div class="group flex gap-6 flex-row-reverse">
+<div class="flex-shrink-0">
+<img alt="Guest Sarah" class="w-12 h-12 rounded-2xl bg-surface-container-high" data-alt="Portrait of a female scientist in a studio with soft bokeh lights and cyan-blue atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPcjfLeRRUcwQahlpx5YHZ_iMRJM557SD3jO7wy6extPvW7BH9XwO22gPc2guUDy74U3etEFbaL7o0BICBFkmvhGFP0auj3wIjzcM1KfBUJoxps9aHoaL-yB315xzoUycEXd4A90j0Lk9UJJR8tR0nwrYLdvHpdor9tkoNzps9F0WDF8zQPx76zbaBoSvFHWj_CSetYEBSqS43hCQgufAtlxkIm4_InidfizWLfKlY4g_Xvx9quf6CXFq0_2L7L3mQMg9H3CYbmUxN"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-center justify-between flex-row-reverse">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Guest Sarah</span>
+<span class="text-[10px] text-outline-variant font-mono">01:42:15</span>
+</div>
+<div class="p-6 rounded-2xl rounded-tr-none bg-transparent border-2 border-secondary/30 ring-1 ring-secondary/10">
+<p class="text-lg leading-relaxed text-secondary-fixed-dim font-medium">Both. It's the 'Uncanny Valley' of emotion. If an AI can perfectly replicate the tremor in a person's voice when they're moved, does the authenticity still exist if the prompt was 'make this sound sadder'?</p>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Insight Highlight -->
+<div class="max-w-4xl mx-auto">
+<div class="bg-surface-container p-6 rounded-3xl border border-outline-variant/10 flex items-start gap-4 shadow-2xl">
+<div class="p-3 bg-tertiary-container rounded-2xl text-on-tertiary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface mb-1">AI Intelligence Insight</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">The segment at 01:42:15 has high conversational engagement potential. Consider adding an atmospheric synth bed underneath to emphasize the philosophical weight of the statement.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar / Player Component -->
+<footer class="fixed bottom-0 left-0 w-full z-50 h-24 rounded-t-3xl bg-[#1F1F22]/90 backdrop-blur-2xl border-t border-[#494456]/15 shadow-[0_-8px_48px_rgba(0,0,0,0.4)] px-8 flex items-center gap-8">
+<!-- Player Controls -->
+<div class="flex items-center gap-4 w-64">
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">skip_previous</span>
+</button>
+<button class="w-14 h-14 bg-gradient-to-r from-[#5D21DF] to-[#00E3FD] rounded-full text-white flex items-center justify-center shadow-lg shadow-primary-container/30 hover:scale-110 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">skip_next</span>
+</button>
+</div>
+<!-- Waveform Visualizer -->
+<div class="flex-1 flex flex-col gap-2">
+<div class="flex justify-between items-end h-8 gap-[2px]">
+<!-- Simulated Waveform Bars -->
+<div class="w-1 h-3 bg-secondary rounded-full"></div>
+<div class="w-1 h-5 bg-secondary rounded-full"></div>
+<div class="w-1 h-8 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full"></div>
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<div class="w-1 h-7 bg-secondary rounded-full"></div>
+<div class="w-1 h-3 bg-secondary rounded-full"></div>
+<div class="w-1 h-5 bg-secondary rounded-full"></div>
+<div class="w-1 h-2 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-6 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-4 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-7 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-5 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-3 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-8 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-4 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-6 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-2 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-5 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-3 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-7 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-4 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-6 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-2 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-5 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-8 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-3 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-6 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-4 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-7 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-5 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-2 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-8 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-4 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-6 bg-outline-variant/40 rounded-full"></div>
+<div class="w-1 h-3 bg-outline-variant/40 rounded-full"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-outline font-bold uppercase tracking-widest">
+<span>01:42 / 45:00</span>
+<span class="text-secondary">Playback Active</span>
+</div>
+</div>
+<!-- Volume & Tools -->
+<div class="flex items-center gap-6 w-64 justify-end">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#CBC3D9] text-xl">volume_up</span>
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-4/5 h-full bg-[#00E3FD]"></div>
+</div>
+</div>
+<button class="text-[#CBC3D9] hover:text-white transition-colors">
+<span class="material-symbols-outlined">equalizer</span>
+</button>
+<button class="text-[#CBC3D9] hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</footer>
+</body></html>

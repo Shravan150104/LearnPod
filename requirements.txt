@@ -1,0 +1,23 @@
+# Document parsing
+PyMuPDF>=1.23.0
+python-docx>=1.1.0
+ebooklib>=0.18
+beautifulsoup4>=4.12.0
+
+# Text chunking
+nltk>=3.8.0
+tiktoken>=0.5.0
+
+# LLM (Ollama client)
+ollama>=0.1.0
+
+# Text-to-Speech
+edge-tts>=0.14.0
+
+# Audio processing
+pydub>=0.25.1
+
+# UI / API server
+fastapi>=0.115.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9

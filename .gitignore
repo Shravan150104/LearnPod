@@ -1,0 +1,26 @@
+# Environments
+venv/
+env/
+.env
+
+# Python caches and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Uploads and Outputs
+output/
+uploads/
+assets/
+*.mp3
+*.wav
+*.docx
+*.pdf
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Any UI node_modules if you have a Node.js project inside
+ui-react/node_modules/
+ui/node_modules/

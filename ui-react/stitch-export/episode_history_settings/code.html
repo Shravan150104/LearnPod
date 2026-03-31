@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-background": "#e4e1e6",
+            "on-tertiary-container": "#ffb4c3",
+            "on-secondary": "#00363d",
+            "surface-dim": "#131316",
+            "on-secondary-fixed": "#001f24",
+            "surface-container-highest": "#353438",
+            "surface-variant": "#353438",
+            "surface-container-lowest": "#0e0e11",
+            "error-container": "#93000a",
+            "on-tertiary": "#66002a",
+            "inverse-on-surface": "#303033",
+            "surface-tint": "#cdbdff",
+            "on-tertiary-fixed-variant": "#8f003f",
+            "outline-variant": "#494456",
+            "outline": "#948da2",
+            "surface-container-low": "#1b1b1e",
+            "secondary": "#bdf4ff",
+            "error": "#ffb4ab",
+            "on-secondary-container": "#00616d",
+            "surface": "#131316",
+            "on-primary-fixed-variant": "#4f00d0",
+            "surface-container": "#1f1f22",
+            "primary-fixed-dim": "#cdbdff",
+            "inverse-primary": "#6833ea",
+            "tertiary-container": "#a8004b",
+            "on-primary": "#370096",
+            "on-surface-variant": "#cbc3d9",
+            "tertiary-fixed": "#ffd9df",
+            "on-surface": "#e4e1e6",
+            "on-tertiary-fixed": "#3f0018",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed": "#9cf0ff",
+            "primary-fixed": "#e8deff",
+            "surface-bright": "#39393c",
+            "secondary-container": "#00e3fd",
+            "tertiary-fixed-dim": "#ffb1c1",
+            "primary": "#cdbdff",
+            "on-secondary-fixed-variant": "#004f58",
+            "on-primary-fixed": "#20005f",
+            "inverse-surface": "#e4e1e6",
+            "background": "#131316",
+            "on-error": "#690005",
+            "tertiary": "#ffb1c1",
+            "secondary-fixed-dim": "#00daf3",
+            "primary-container": "#5d21df",
+            "on-primary-container": "#cebfff",
+            "surface-container-high": "#2a2a2d"
+          },
+          fontFamily: {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body { background-color: #131316; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #494456; border-radius: 10px; }
+  </style>
+</head>
+<body class="font-body text-on-background selection:bg-secondary-container selection:text-on-secondary">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-[#1B1B1E] dark:bg-[#1B1B1E] shadow-[48px_0px_48px_0px_rgba(19,19,22,0.06)] flex flex-col py-8 px-4 font-['Inter'] tracking-tight antialiased">
+<div class="mb-10 px-4">
+<h1 class="text-xl font-black tracking-[-0.02em] text-[#E4E1E6]">The Sonic Lens</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 mt-1">Premium AI Studio</p>
+</div>
+<nav class="flex-1 space-y-2">
+<div class="group flex items-center py-3 text-[#BDF4FF] font-bold border-l-2 border-[#00E3FD] pl-4 cursor-pointer">
+<span class="material-symbols-outlined mr-3">mic_external_on</span>
+<span>Studio</span>
+</div>
+<div class="group flex items-center py-3 text-[#CBC3D9] opacity-70 hover:opacity-100 transition-opacity pl-4 hover:bg-[#1F1F22] rounded-lg cursor-pointer">
+<span class="material-symbols-outlined mr-3">history</span>
+<span>Episodes</span>
+</div>
+<div class="group flex items-center py-3 text-[#CBC3D9] opacity-70 hover:opacity-100 transition-opacity pl-4 hover:bg-[#1F1F22] rounded-lg cursor-pointer">
+<span class="material-symbols-outlined mr-3">record_voice_over</span>
+<span>Voices</span>
+</div>
+<div class="group flex items-center py-3 text-[#CBC3D9] opacity-70 hover:opacity-100 transition-opacity pl-4 hover:bg-[#1F1F22] rounded-lg cursor-pointer">
+<span class="material-symbols-outlined mr-3">video_library</span>
+<span>Library</span>
+</div>
+</nav>
+<div class="mt-auto space-y-4 px-4">
+<button class="w-full bg-gradient-to-br from-[#5D21DF] to-[#00E3FD] text-on-primary-fixed font-bold py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>New Episode</span>
+</button>
+<div class="pt-6 border-t border-outline-variant/10 space-y-2">
+<div class="flex items-center gap-3 text-[#CBC3D9] text-sm hover:text-on-surface cursor-pointer">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span>Settings</span>
+</div>
+<div class="flex items-center gap-3 text-[#CBC3D9] text-sm hover:text-on-surface cursor-pointer">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+<span>Support</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex h-screen overflow-hidden">
+<!-- TopAppBar Component (Within Main Content for Layout Integrity) -->
+<header class="fixed top-0 right-0 left-64 h-20 z-40 bg-[#131316]/80 backdrop-blur-xl flex justify-between items-center px-8 w-full border-none">
+<div class="flex items-center gap-8">
+<nav class="flex gap-6 font-['Inter'] text-sm font-medium uppercase tracking-widest">
+<a class="text-[#00E3FD] border-b-2 border-[#00E3FD] pb-1" href="#">Dashboard</a>
+<a class="text-[#CBC3D9] hover:text-[#E4E1E6] transition-all hover:translate-y-[-1px]" href="#">Analytics</a>
+<a class="text-[#CBC3D9] hover:text-[#E4E1E6] transition-all hover:translate-y-[-1px]" href="#">Team</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-lowest border-none rounded-lg pl-10 pr-4 py-2 text-xs tracking-widest focus:ring-1 focus:ring-secondary focus:outline-none w-48 transition-all group-hover:w-64" placeholder="SEARCH STUDIO..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 rounded-full text-on-surface-variant hover:text-on-surface transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary-container/20 text-[#CDBDFF] px-4 py-2 rounded-lg font-bold text-xs tracking-widest hover:bg-primary-container/30 transition-all uppercase">
+            Export
+          </button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant/30 flex items-center justify-center cursor-pointer hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-secondary">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Split View Sections -->
+<section class="flex flex-1 pt-20">
+<!-- Left Side: Episode History -->
+<div class="w-[60%] h-full overflow-y-auto p-10 custom-scrollbar">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="text-xs font-bold tracking-[0.2em] text-secondary uppercase mb-2 block">Archive</span>
+<h2 class="text-4xl font-extrabold tracking-tighter text-on-surface">Episode History</h2>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-widest">Total Production</span>
+<p class="text-xl font-mono text-[#00E3FD]">48:12:04</p>
+</div>
+</div>
+<!-- Bento-inspired Grid -->
+<div class="grid grid-cols-2 gap-6">
+<!-- Card 1 -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden hover:bg-surface-container transition-all duration-300 flex flex-col">
+<div class="relative h-40 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="abstract digital visualization of neural networks and glowing artificial intelligence fibers in deep violet and cyan light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD7E0ZASqkvIsvcahsFB52t-MEAT_dDUe44CwIeHmLyMkGLOXrTumrE9N5st0xTze_tRZ5CCK1d5XzGRvCQGCA17FAHSzzEDt1TPdyih91zTlNpNIAdsiLGlMzWm93cIvx-__XR4ItzL3UuMofdqrJw6hegvc9-6JhQ_xIwGYrZx7pJfO1RgFUszOs8LRx8Ch_638_3HTyX3XbBCRc5aKaxaba2tGBI7eqZ6a1ON1QjwYPxR1KmJCGwQ4N8lIkwo2ClTb6jc7dMpWq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+<div class="absolute top-4 right-4 bg-background/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold tracking-widest text-secondary">AI TRENDS</div>
+</div>
+<div class="p-6">
+<h3 class="text-lg font-bold text-on-surface leading-snug mb-4 group-hover:text-secondary transition-colors">The Future of AI: Beyond Generative Models</h3>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Oct 12, 2023</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono text-secondary">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>14:20</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden hover:bg-surface-container transition-all duration-300 flex flex-col">
+<div class="relative h-40 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="vibrant neon liquid gradients flowing smoothly with organic shapes in shades of purple and blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJME5mfKHV1MSBVepFgSzaUvdQrtZeO-1OOZ0zDjZ9spscRQYEFMqYiFmw0KZ0P0MaPJNBWhLN93WzwCpaiMAQuadYHY_eoyYug_rJtaFZF2P9w6AN7x8VxD0w-4F4zTgkrp3OX_SFIcduvkFe2quNw3sb-cEdxxXFpXu0nfj5r4DBQ6HGYwaFPYoOvhqdZIMCcc4WQeOa_D1I5YkHzwO5huC-GbzOx_6q7K7IuiCwQCMEzeyKjR6_Mg6i46OCy7ny5VAbcGCOFyYU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+<div class="absolute top-4 right-4 bg-background/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold tracking-widest text-secondary">ETHICS</div>
+</div>
+<div class="p-6">
+<h3 class="text-lg font-bold text-on-surface leading-snug mb-4 group-hover:text-secondary transition-colors">Digital Souls: The Ghost in the Machine</h3>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Oct 08, 2023</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono text-secondary">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>28:45</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden hover:bg-surface-container transition-all duration-300 flex flex-col">
+<div class="relative h-40 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="stunning satellite view of earth at night with glowing city lights and atmospheric violet haze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3Za6i0oIb_KRLMb80zSzKq7EiGrM_b3UZuekNlRXwL32hr4YLgMEQELNFInbjcnvjGyQah6MP7vo3PCb_vRhmeguVZDdDCsVu0r-83fhdg5AZvFJm5JLDA48c4iMiIOa6KNSYN-jPsJUTVBbEepT-K6_xIGFURpBiRRQItvSJzkPyEKYrwcG_7X4nlp4dqSIy-9XfEvY8jdWfrMR4pQxQnjRjygits2p4tQemAFGdyJb6KvX6oRHmJaOuo0lKeB5zzgXteiX8e827"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+<div class="absolute top-4 right-4 bg-background/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold tracking-widest text-secondary">GLOBAL</div>
+</div>
+<div class="p-6">
+<h3 class="text-lg font-bold text-on-surface leading-snug mb-4 group-hover:text-secondary transition-colors">Quantum Supremacy &amp; Audio Processing</h3>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Sep 30, 2023</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono text-secondary">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>19:10</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4 (Newest/Featured) -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden hover:bg-surface-container transition-all duration-300 flex flex-col">
+<div class="relative h-40 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close-up of a high-tech computer circuit board with glowing blue power lines and futuristic components" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxKv52Hz4WSTxBQ_nMdANnFzc8qUoWhIf_n6tvOrN4zOQXwVmkz4EBbxutvIG_l9WgvB_U6J8rF6q07Z7G4LW4Onijoy9jFG-U_KGkjNgBw_ZLU-xukoBX-eN5URwgGWKL_LF-avnGyKnM-Hyj0jG6ax9UxqyTDTZUkYxKb32qAKpzMVRiwdRRdQIfYtf0IBD254FHQQaM1XVcfod2iLQPplCOLz2HHnPDglqTeToegjVeebuk531tYa7rkvxg7LAZMLhOqA5IF4wO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"></div>
+<div class="absolute top-4 right-4 bg-background/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold tracking-widest text-secondary">HARDWARE</div>
+</div>
+<div class="p-6">
+<h3 class="text-lg font-bold text-on-surface leading-snug mb-4 group-hover:text-secondary transition-colors">Synthesizing Silicon: New Chip Architectures</h3>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Sep 24, 2023</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono text-secondary">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>42:15</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Settings Panel -->
+<div class="w-[40%] bg-surface-container-low h-full p-10 flex flex-col gap-10 overflow-y-auto custom-scrollbar shadow-[-24px_0_48px_0_rgba(0,0,0,0.3)]">
+<div>
+<span class="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-2 block">Configuration</span>
+<h2 class="text-3xl font-extrabold tracking-tighter text-on-surface">Studio Settings</h2>
+</div>
+<!-- Speaker Style -->
+<div class="space-y-4">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Speaker Style</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest text-on-surface border-none rounded-xl py-4 px-6 appearance-none focus:ring-2 focus:ring-primary-container cursor-pointer">
+<option>Journalistic</option>
+<option selected="">Conversational</option>
+<option>Dramatic</option>
+<option>Scientific</option>
+</select>
+<span class="material-symbols-outlined absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Tone Selector -->
+<div class="space-y-4">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Output Tone</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="bg-surface-container-highest/40 hover:bg-surface-container-highest text-xs py-3 rounded-lg text-on-surface-variant transition-all font-medium border border-outline-variant/10">Professional</button>
+<button class="bg-primary-container text-on-primary-container text-xs py-3 rounded-lg transition-all font-bold border border-primary/20">Casual</button>
+<button class="bg-surface-container-highest/40 hover:bg-surface-container-highest text-xs py-3 rounded-lg text-on-surface-variant transition-all font-medium border border-outline-variant/10">Energetic</button>
+</div>
+</div>
+<!-- Episode Length Slider -->
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Target Duration</label>
+<span class="text-xs font-mono text-secondary">Standard (~30m)</span>
+</div>
+<div class="relative h-2 w-full bg-surface-container-lowest rounded-full">
+<div class="absolute top-0 left-0 h-full w-[50%] bg-gradient-to-r from-primary-container to-secondary-container rounded-full"></div>
+<div class="absolute top-1/2 left-[50%] -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-on-background rounded-full border-4 border-surface shadow-xl"></div>
+</div>
+<div class="flex justify-between text-[9px] text-on-surface-variant font-bold uppercase tracking-tighter">
+<span>Short (15m)</span>
+<span>Standard</span>
+<span>Long (60m+)</span>
+</div>
+</div>
+<!-- Output Voice Selector -->
+<div class="space-y-4">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Synthetic Persona</label>
+<div class="space-y-3">
+<!-- Voice Item Active -->
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-xl border-l-4 border-secondary group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">graphic_eq</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Elias Vance</p>
+<p class="text-[10px] text-on-surface-variant">Smooth • Mid-Range • Calm</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+</button>
+</div>
+<!-- Voice Item Inactive -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container transition-all rounded-xl group cursor-pointer border-l-4 border-transparent">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">graphic_eq</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface opacity-80">Sarah K.</p>
+<p class="text-[10px] text-on-surface-variant">Crisp • Sophisticated • Fast</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full border border-outline-variant text-on-surface-variant flex items-center justify-center hover:bg-white/5">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+</button>
+</div>
+<!-- Voice Item Inactive -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container transition-all rounded-xl group cursor-pointer border-l-4 border-transparent">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">graphic_eq</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface opacity-80">The Orator</p>
+<p class="text-[10px] text-on-surface-variant">Deep • Authoritative • Cinematic</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full border border-outline-variant text-on-surface-variant flex items-center justify-center hover:bg-white/5">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-4 rounded-xl bg-gradient-to-r from-primary-container to-secondary-container text-on-primary-fixed font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary-container/30 transition-all hover:brightness-110 active:scale-[0.98]">
+          Generate Preview
+        </button>
+</div>
+</section>
+</main>
+<!-- Global Audio Player (Subtle Floating Bar) -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[600px] bg-surface-container-high/90 backdrop-blur-2xl border border-outline-variant/20 rounded-full py-3 px-6 z-50 shadow-[0_48px_48px_-12px_rgba(0,0,0,0.5)] flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface transition-colors">skip_previous</button>
+<button class="w-10 h-10 bg-on-background text-background rounded-full flex items-center justify-center transition-transform hover:scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface transition-colors">skip_next</button>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex justify-between text-[10px] font-bold text-on-surface uppercase tracking-widest">
+<span>Now Playing: The Future of AI</span>
+<span class="text-secondary">04:12 / 14:20</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-[30%] bg-secondary"></div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">volume_up</span>
+<div class="w-16 h-1 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="w-1/2 h-full bg-on-surface-variant"></div>
+</div>
+</div>
+</div>
+</body></html>
