@@ -1,4 +1,4 @@
-# LearnPod-v2 🎧
+# LearnPod: AI-Powered Document-to-Podcast Pipeline 🎧
 
 **LearnPod** is a fully local, zero-cost AI application that converts your uploaded documents into beautiful podcast-style audio conversations. Upload a PDF, Word document, or e-book, and LearnPod will automatically generate an engaging dialogue and vocalize it for you to listen to.
 
