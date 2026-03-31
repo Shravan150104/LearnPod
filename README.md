@@ -57,3 +57,9 @@ npm run dev
 ```
 
 Browse to your `localhost` address (usually `http://localhost:5173`) to view and interact with LearnPod!
+<img width="1917" height="941" alt="image" src="https://github.com/user-attachments/assets/86ef11d2-8369-4f71-b20b-7f6ff5756af2" />
+<img width="1917" height="941" alt="image" src="https://github.com/user-attachments/assets/00114e74-c0f3-4007-9815-bcb55a037520" />
+<img width="1912" height="937" alt="image" src="https://github.com/user-attachments/assets/32afd3e2-36a1-4300-8f51-c1e473e08579" />
+<img width="1910" height="941" alt="image" src="https://github.com/user-attachments/assets/a637c2b0-f047-4740-8b70-4560a25062a2" />
+
+
