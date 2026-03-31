@@ -12,8 +12,8 @@
 ## Technologies Used
 * **Frontend:** React (Vite-based), Tailwind CSS
 * **Backend:** Python, FastAPI, Uvicorn
-* **AI/LLM:** Ollama
-* **Audio/TTS:** Edge-TTS, Pydub
+* **AI/LLM:** Ollama (Model: `gemma3:4b`)
+* **Audio/TTS:** Edge-TTS (Voices: `en-US-GuyNeural` for Alex, `en-US-JennyNeural` for Jordan), Pydub
 * **Parsing:** PyMuPDF, python-docx, EbookLib
 
 ## Getting Started
